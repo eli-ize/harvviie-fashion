@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -25,28 +26,28 @@ function Header() {
           <div className="flex h-24 items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
-              <a href="/" className="group">
+              <Link to="/" className="group">
                 <h1 className="font-heading text-2xl sm:text-3xl font-bold tracking-tighter text-harvviie-black group-hover:text-harvviie-gold transition-colors">
                   HARVVIIE
                 </h1>
                 <p className="text-xs tracking-widest text-harvviie-black/60 uppercase">South African Fashion</p>
-              </a>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex md:items-center md:space-x-10">
-              <a href="#collection" className="text-sm font-heading font-medium tracking-wide uppercase hover:text-harvviie-gold transition-colors">
+              <Link to="/collection" className="text-sm font-heading font-medium tracking-wide uppercase hover:text-harvviie-gold transition-colors">
                 Collection
-              </a>
-              <a href="#lookbook" className="text-sm font-heading font-medium tracking-wide uppercase hover:text-harvviie-gold transition-colors">
+              </Link>
+              <Link to="/#lookbook" className="text-sm font-heading font-medium tracking-wide uppercase hover:text-harvviie-gold transition-colors">
                 Lookbook
-              </a>
-              <a href="#story" className="text-sm font-heading font-medium tracking-wide uppercase hover:text-harvviie-gold transition-colors">
+              </Link>
+              <Link to="/about" className="text-sm font-heading font-medium tracking-wide uppercase hover:text-harvviie-gold transition-colors">
                 Our Story
-              </a>
-              <a href="#contact" className="text-sm font-heading font-medium tracking-wide uppercase hover:text-harvviie-gold transition-colors">
+              </Link>
+              <Link to="/contact" className="text-sm font-heading font-medium tracking-wide uppercase hover:text-harvviie-gold transition-colors">
                 Contact
-              </a>
+              </Link>
             </div>
 
             {/* Right Side Actions */}
