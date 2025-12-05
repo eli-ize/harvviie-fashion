@@ -94,32 +94,34 @@ function Collection() {
   return (
     <>
       {/* Collection Section */}
-      <section id="collection" className="py-20 bg-white">
+      <section id="collection" className="py-24 sm:py-32 bg-white">
         <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
           <div 
             ref={headingRef}
-            className={`text-center mb-12 transition-all duration-1000 ${
+            className={`mb-20 transition-all duration-1000 ${
               headingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <h2 className="font-display text-4xl sm:text-5xl font-light text-harvviie-black mb-4">
-              Latest <span className="italic font-normal">Collection</span>
+            <h2 className="font-display text-5xl sm:text-6xl md:text-7xl font-light text-harvviie-black mb-6">
+              A simplified routine
+              <br />
+              <span className="italic">for maximum results.</span>
             </h2>
-            <p className="text-base text-harvviie-black/60 max-w-2xl mx-auto px-4">
-              Discover pieces that blend South African heritage with contemporary design
+            <p className="text-lg text-harvviie-black/50 max-w-xl">
+              Discover pieces that blend South African heritage with contemporary design.
             </p>
           </div>
 
           {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap gap-4 mb-16">
             {filters.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-6 py-2 font-heading text-sm tracking-widest uppercase transition-all duration-300 rounded-full ${
+                className={`px-6 py-3 font-heading text-xs tracking-[0.2em] uppercase transition-all duration-300 ${
                   activeFilter === filter
                     ? 'bg-harvviie-black text-harvviie-cream'
-                    : 'bg-harvviie-sand text-harvviie-black hover:bg-harvviie-black hover:text-harvviie-cream'
+                    : 'bg-transparent text-harvviie-black border border-harvviie-black/20 hover:border-harvviie-black'
                 }`}
               >
                 {filter}
@@ -130,13 +132,13 @@ function Collection() {
           {/* Collection Grid */}
           <div 
             ref={gridRef}
-            className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-1000 delay-200 ${
+            className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 transition-all duration-1000 delay-200 ${
               gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
             {filteredCollections.map((item) => (
               <div key={item.id} className="group cursor-pointer">
-                <div className="relative aspect-[3/4] overflow-hidden bg-harvviie-sand mb-4 rounded-2xl">
+                <div className="relative aspect-[3/4] overflow-hidden bg-harvviie-sand mb-4">
                   {/* Main Image */}
                   <img
                     src={item.image}
@@ -152,7 +154,7 @@ function Collection() {
                   {/* Quick Buy Button - 3 states: hidden → circle on card hover → pill on button hover */}
                   <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="relative">
-                      <button className="peer group/button w-12 h-12 bg-harvviie-black rounded-full flex items-center justify-center hover:w-auto hover:px-6 transition-all duration-300 ease-out overflow-hidden">
+                      <button className="peer group/button w-12 h-12 bg-harvviie-black flex items-center justify-center hover:w-auto hover:px-6 transition-all duration-300 ease-out overflow-hidden">
                         <svg className="w-6 h-6 text-harvviie-cream flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                         </svg>
@@ -162,16 +164,12 @@ function Collection() {
                       </button>
                     </div>
                   </div>
-                  <div className="absolute top-4 left-4 bg-harvviie-gold text-harvviie-black text-xs font-heading font-bold px-3 py-1 tracking-wider uppercase rounded-full">
-                    {item.category}
-                  </div>
                 </div>
-                <div>
-                  <h3 className="font-heading text-lg font-semibold text-harvviie-black mb-2 group-hover:text-harvviie-gold transition-colors">
+                <div className="space-y-1">
+                  <h3 className="font-heading text-base text-harvviie-black group-hover:text-harvviie-gold transition-colors">
                     {item.name}
                   </h3>
-                  <p className="text-sm text-harvviie-black/60 mb-2">{item.description}</p>
-                  <p className="font-heading text-base font-bold text-harvviie-black">{item.price}</p>
+                  <p className="font-heading text-sm text-harvviie-black/60">{item.price}</p>
                 </div>
               </div>
             ))}
