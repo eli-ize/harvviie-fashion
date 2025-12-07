@@ -24,14 +24,14 @@ const products = [
 
 function ProductCarousel() {
   return (
-    <section className="py-12 bg-white">
-      <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section className="py-12 bg-white overflow-hidden">
+      <div className="mx-auto max-w-[1400px]">
+        <div className="flex overflow-x-auto gap-6 px-6 sm:px-8 lg:px-12 pb-4 scrollbar-hide snap-x snap-mandatory">
           {products.map((product) => (
             <Link
               key={product.id}
               to={`/product/${product.id}`}
-              className="group"
+              className="flex-shrink-0 w-[280px] sm:w-[340px] group snap-start"
             >
               <div className="relative aspect-[3/4] bg-gray-100 mb-4 overflow-hidden">
                 <img
