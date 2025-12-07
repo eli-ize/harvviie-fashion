@@ -1,25 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import AnnouncementBar from './AnnouncementBar'
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
     <>
-      {/* Announcement Bar */}
-      <div className="bg-harvviie-black text-harvviie-gold overflow-hidden">
-        <div className="animate-marquee whitespace-nowrap py-3">
-          <div className="inline-block text-sm font-heading tracking-widest uppercase">
-            <span className="px-12">New Collection: Heritage Series</span>
-            <span className="px-12">Free Shipping Across South Africa</span>
-            <span className="px-12">Crafted in Cape Town</span>
-            <span className="px-12">New Collection: Heritage Series</span>
-            <span className="px-12">Free Shipping Across South Africa</span>
-            <span className="px-12">Crafted in Cape Town</span>
-          </div>
-        </div>
-      </div>
-
+      <AnnouncementBar />
       {/* Main Navigation */}
       <header className="sticky top-0 bg-harvviie-cream/95 backdrop-blur-lg z-50 border-b border-harvviie-black/10">
         <nav className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
